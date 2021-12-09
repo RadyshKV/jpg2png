@@ -6,9 +6,11 @@ import moxy.viewstate.strategy.alias.AddToEndSingle
 
 interface MainView : MvpView {
     @AddToEndSingle
-    fun setImageJpg(image : Bitmap)
+    fun setImageJpg(image: Bitmap)
+
     @AddToEndSingle
-    fun setImagePng(image :Bitmap)
+    fun setImagePng(image: Bitmap)
+
     @AddToEndSingle
     fun setTextComplete()
 }

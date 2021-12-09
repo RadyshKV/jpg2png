@@ -30,30 +30,11 @@ class ConvertFileModel(
     }
 
     fun getPng(): Single<Bitmap> = Single.fromCallable {
-        imagePng = imageJpg.compress(Bitmap.CompressFormat.PNG)
-        return@fromCallable imagePng
-    }
-
-
-    // Extension function to compress and change bitmap image format programmatically
-    fun Bitmap.compress(
-        format: Bitmap.CompressFormat = Bitmap.CompressFormat.JPEG,
-        quality: Int = 100
-    ): Bitmap {
-        // Initialize a new ByteArrayStream
         val stream = ByteArrayOutputStream()
-
-        // Compress the bitmap with JPEG format and quality 50%
-        this.compress(
-            format,
-            quality,
-            stream
-        )
-
+        imageJpg.compress(Bitmap.CompressFormat.PNG, 100, stream)
         val byteArray = stream.toByteArray()
-
-        // Finally, return the compressed bitmap
-        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
+        imagePng = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
+        return@fromCallable imagePng
     }
 }
 

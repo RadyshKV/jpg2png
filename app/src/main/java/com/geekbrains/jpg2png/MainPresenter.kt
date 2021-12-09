@@ -49,10 +49,10 @@ class MainPresenter(
             .subscribe(
                 {
                     viewState.setTextComplete()
-            },
+                },
                 { e: Throwable ->
                     Log.e("jpg2png", "Ошибка записи файла Png $e", e)
-            })
+                })
     }
 
 

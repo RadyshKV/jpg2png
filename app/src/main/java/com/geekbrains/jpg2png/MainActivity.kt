@@ -15,7 +15,7 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     private val binding
         get() = _binding!!
 
-     private val presenter by moxyPresenter { MainPresenter(ConvertFileModel(applicationContext)) }
+    private val presenter by moxyPresenter { MainPresenter(ConvertFileModel(applicationContext)) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +37,4 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     override fun setTextComplete() {
         binding.textView.setText(R.string.completed)
     }
-
-
 }
